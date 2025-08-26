@@ -1,6 +1,6 @@
 // src/components/TestimonialsSection.tsx
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image'; // --- CORRIGIDO: Importação removida pois não está em uso ---
 import { Star, Quote } from 'lucide-react';
 
 // Dados de exemplo - no futuro, você substituirá pelos depoimentos reais.
@@ -9,7 +9,7 @@ const testimonials = [
     quote: "Minhas dores nas costas praticamente sumiram em um mês! O acompanhamento pelo chat fez toda a diferença para eu fazer os exercícios corretamente.",
     name: 'Juliana S.',
     title: 'Analista de Sistemas, 32 anos',
-    avatar: '/avatars/juliana.jpg', // Crie uma pasta /public/avatars e coloque as imagens lá
+    avatar: '/avatars/juliana.jpg',
   },
   {
     quote: "Nunca tive disciplina para exercícios, mas o app é tão fácil de usar e os treinos são tão rápidos que finalmente consegui criar uma rotina. Recomendo demais!",
@@ -37,15 +37,9 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="flex flex-col bg-slate-50 p-8 rounded-xl text-left">
               <Quote className="w-8 h-8 text-yellow-400 mb-4" />
-              <p className="text-gray-600 mb-6 flex-grow">"{testimonial.quote}"</p>
+              {/* --- CORRIGIDO: Removemos as aspas que envolviam a variável --- */}
+              <p className="text-gray-600 mb-6 flex-grow">{testimonial.quote}</p>
               <div className="flex items-center">
-                {/* <Image
-                  src={testimonial.avatar}
-                  alt={`Foto de ${testimonial.name}`}
-                  width={56}
-                  height={56}
-                  className="rounded-full mr-4"
-                /> */}
                 <div className='w-14 h-14 rounded-full mr-4 bg-gray-300'></div> {/* Placeholder para a imagem */}
                 <div>
                   <p className="font-bold text-gray-900">{testimonial.name}</p>
